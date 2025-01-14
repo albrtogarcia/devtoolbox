@@ -36,6 +36,7 @@ from .views.reverse_cron import ReverseCronView
 from .views.chmod_calculator import ChmodCalculatorView
 from .views.qrcode_generator import QRCodeGeneratorView
 from .views.json_validator import JsonValidatorView
+from .views.px_to_rem_converter import PxToRemConverterView
 
 from .formatters.json import JsonFormatter
 from .formatters.sql import SqlFormatter
@@ -151,6 +152,13 @@ class DevtoolboxWindow(Adw.ApplicationWindow):
                 "icon-name": "timer-reverse-symbolic",
                 "tooltip": _("Generate CRON expressions"),
                 "child": ReverseCronView(),
+            },
+            "px-to-rem": {
+                "title": _("PX to REM"),
+                "category": _("Converters"),
+                "icon-name": "horizontal-arrows-symbolic",
+                "tooltip": _("Convert PX units to REM units and vice versa"),
+                "child": PxToRemConverterView(),
             },
 
             # Encoders

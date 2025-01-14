@@ -1,0 +1,78 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $PxToRemConverterView: Adw.Bin {
+  Adw.ToastOverlay _toast {
+    child: ScrolledWindow {
+      child: Adw.Clamp {
+        vexpand: true;
+        maximum-size: 1200;
+        tightening-threshold: 600;
+
+        child: Box {
+          orientation: vertical;
+
+          $UtilityTitle _title {
+            title: _("PX to REM Converter");
+            description: _("Convert PX units to REM units and vice versa");
+            tool-name: "px-to-rem";
+          }
+
+          Separator {
+            margin-top: 10;
+            margin-bottom: 10;
+          }
+
+          Adw.PreferencesGroup {
+            title: _("Input values");
+
+            $EntryRow _px_entry {
+              title: _("Pixels");
+              input-purpose: "number";
+              text: "16";
+              show-copy-btn: "true";
+              show-clear-btn: "true";
+            }
+
+            $EntryRow _rem_entry {
+              title: _("REM");
+              input-purpose: "number";
+              text: "1";
+              show-copy-btn: "true";
+              show-clear-btn: "true";
+            }
+
+            $EntryRow _root_font_size_entry {
+              title: _("Root Font Size (px)");
+              input-purpose: "number";
+              text: "16";
+              show-copy-btn: "true";
+              show-clear-btn: "true";
+            }
+          }
+
+          Box {
+            orientation: horizontal;
+            halign: center;
+            margin-bottom: 10;
+            margin-top: 10;
+
+            styles [
+              "dim-label",
+            ]
+
+            Image {
+              margin-end: 5;
+              pixel-size: 16;
+              icon-name: "info-symbolic";
+            }
+
+            Label {
+              label: _("Calculation based on a root font-size of 16 pixels.");
+            }
+          }
+        };
+      };
+    };
+  }
+}
